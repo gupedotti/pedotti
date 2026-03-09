@@ -101,14 +101,13 @@
     transform: translateX(3px);
 }
 
-/* Visual decorative element */
+/* Globe visual */
 .contact__visual {
     position: relative;
-    height: 350px;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact__glow {

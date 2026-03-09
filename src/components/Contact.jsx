@@ -1,4 +1,5 @@
 import { useInView } from '../hooks/useInView';
+import Globe from './Globe';
 import './Contact.css';
 
 const Contact = () => {
@@ -47,12 +48,7 @@ const Contact = () => {
                     </div>
 
                     <div className="contact__visual">
-                        <div className="contact__glow" />
-                        <div className="contact__lines">
-                            {[...Array(5)].map((_, i) => (
-                                <div key={i} className="contact__line" style={{ animationDelay: `${i * 0.3}s` }} />
-                            ))}
-                        </div>
+                        <Globe />
                     </div>
                 </div>
             </div>

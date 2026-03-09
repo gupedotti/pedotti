@@ -1,0 +1,63 @@
+import { useInView } from '../hooks/useInView';
+import './Contact.css';
+
+const Contact = () => {
+    const [ref, isInView] = useInView();
+
+    return (
+        <section className="contact section" id="contato" ref={ref}>
+            <div className="container">
+                <div className={`contact__wrapper ${isInView ? 'in-view' : ''}`}>
+                    <div className="contact__content">
+                        <span className="contact__label">Vamos Conversar</span>
+                        <h2 className="contact__title">
+                            Pronto para transformar seu negócio com <span className="text-gradient">IA</span>?
+                        </h2>
+                        <p className="contact__description">
+                            Entre em contato e vamos entender como a inteligência artificial
+                            pode resolver seus desafios mais complexos.
+                        </p>
+
+                        <div className="contact__info">
+                            <a href="mailto:contato@pedotti.ai" className="contact__info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 7l-10 6L2 7" />
+                                </svg>
+                                contato@pedotti.ai
+                            </a>
+                            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" className="contact__info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                WhatsApp
+                            </a>
+                        </div>
+
+                        <a
+                            href="https://wa.me/5500000000000?text=Olá! Gostaria de saber mais sobre as soluções de IA da Pedotti."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="contact__cta"
+                        >
+                            Iniciar Conversa
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div className="contact__visual">
+                        <div className="contact__glow" />
+                        <div className="contact__lines">
+                            {[...Array(5)].map((_, i) => (
+                                <div key={i} className="contact__line" style={{ animationDelay: `${i * 0.3}s` }} />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default Contact;

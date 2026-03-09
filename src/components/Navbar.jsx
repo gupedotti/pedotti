@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -10,9 +10,8 @@ const Navbar = () => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
-        window.addEventListener('scroll', handleScroll);
 
-        // Trigger logo animation after a small delay
+        window.addEventListener('scroll', handleScroll);
         const timer = setTimeout(() => setLogoLoaded(true), 100);
 
         return () => {
@@ -20,6 +19,24 @@ const Navbar = () => {
             clearTimeout(timer);
         };
     }, []);
+
+    useEffect(() => {
+        const previousOverflow = document.body.style.overflow;
+        const previousTouchAction = document.body.style.touchAction;
+
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden';
+            document.body.style.touchAction = 'none';
+        } else {
+            document.body.style.overflow = previousOverflow;
+            document.body.style.touchAction = previousTouchAction;
+        }
+
+        return () => {
+            document.body.style.overflow = previousOverflow;
+            document.body.style.touchAction = previousTouchAction;
+        };
+    }, [menuOpen]);
 
     const scrollToSection = (id) => {
         const el = document.getElementById(id);
@@ -32,7 +49,7 @@ const Navbar = () => {
     return (
         <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
             <div className="navbar__inner">
-                <a href="#" className="navbar__logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+                <a href="#" className="navbar__logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); setMenuOpen(false); }}>
                     <img
                         src="/logo-pedotti.png"
                         alt="Pedotti"
@@ -48,13 +65,14 @@ const Navbar = () => {
                 </div>
 
                 <button className="navbar__cta" onClick={() => scrollToSection('contato')}>
-                    Fale Conosco
+                    Agendar diagnóstico
                 </button>
 
                 <button
                     className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
-                    onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label="Menu"
+                    onClick={() => setMenuOpen((current) => !current)}
+                    aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+                    aria-expanded={menuOpen}
                 >
                     <span></span>
                     <span></span>

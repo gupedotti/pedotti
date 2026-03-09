@@ -13,18 +13,18 @@
     align-items: center;
 }
 
-.contact__wrapper>* {
+.contact__wrapper > * {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contact__wrapper.in-view>* {
+.contact__wrapper.in-view > * {
     opacity: 1;
     transform: translateY(0);
 }
 
-.contact__wrapper.in-view>*:nth-child(2) {
+.contact__wrapper.in-view > *:nth-child(2) {
     transition-delay: 200ms;
 }
 
@@ -134,11 +134,13 @@
     position: absolute;
     width: 1px;
     height: 100%;
-    background: linear-gradient(to bottom,
-            transparent,
-            rgba(0, 0, 0, 0.04) 30%,
-            rgba(0, 0, 0, 0.04) 70%,
-            transparent);
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0, 0, 0, 0.04) 30%,
+        rgba(0, 0, 0, 0.04) 70%,
+        transparent
+    );
 }
 
 .contact__line:nth-child(1) {
@@ -162,7 +164,6 @@
 }
 
 @keyframes lineMove {
-
     0%,
     100% {
         opacity: 0.3;
@@ -185,6 +186,12 @@
     }
 
     .contact__visual {
-        height: 200px;
+        height: 300px;
+        margin-inline: -0.75rem;
+    }
+
+    .contact__visual canvas {
+        transform: scale(1.18);
+        transform-origin: center;
     }
 }

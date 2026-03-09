@@ -5,22 +5,22 @@ const steps = [
     {
         number: '01',
         title: 'Diagnóstico',
-        description: 'Entendemos profundamente seu negócio, seus dados e seus desafios para identificar onde a IA pode gerar mais impacto.',
+        description: 'Investigamos operação, dados, gargalos e alavancas para identificar onde a IA gera retorno com menos fricção e mais velocidade.',
     },
     {
         number: '02',
         title: 'Estratégia',
-        description: 'Desenhamos a solução ideal com tecnologia, arquitetura, cronograma e métricas de sucesso bem definidos.',
+        description: 'Definimos caso de uso, arquitetura, integrações, metas de performance e escopo executivo antes de qualquer desenvolvimento.',
     },
     {
         number: '03',
         title: 'Desenvolvimento',
-        description: 'Construímos e treinamos os modelos com dados reais, iterando rapidamente com feedback contínuo.',
+        description: 'Construímos a solução com dados reais, ciclos curtos de validação e foco em aderência operacional, não em laboratório.',
     },
     {
         number: '04',
         title: 'Implantação',
-        description: 'Integramos a solução ao seu ecossistema com monitoramento em tempo real e suporte dedicado.',
+        description: 'Colocamos a IA em produção, monitoramos desempenho e refinamos continuamente para sustentar resultado ao longo do tempo.',
     },
 ];
 
@@ -31,12 +31,12 @@ const Process = () => {
         <section className="process section" id="processo" ref={ref}>
             <div className="container">
                 <div className={`process__header ${isInView ? 'in-view' : ''}`}>
-                    <span className="process__label">Processo</span>
+                    <span className="process__label">Método</span>
                     <h2 className="process__title">
-                        Do diagnóstico ao <span className="text-gradient">resultado</span>
+                        Da oportunidade ao impacto com <span className="text-gradient">método e controle</span>
                     </h2>
                     <p className="process__subtitle">
-                        Um processo estruturado que garante qualidade e previsibilidade em cada etapa.
+                        Um processo claro para reduzir risco, acelerar a execução e transformar IA em entrega mensurável.
                     </p>
                 </div>
 

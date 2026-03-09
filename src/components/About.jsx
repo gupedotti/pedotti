@@ -15,10 +15,10 @@ const AnimatedStat = ({ target, suffix, label, isInView }) => {
 };
 
 const stats = [
-    { target: 50, suffix: '+', label: 'Projetos Entregues' },
-    { target: 98, suffix: '%', label: 'Taxa de Satisfação' },
-    { target: 3, suffix: 'x', label: 'ROI Médio' },
-    { target: 24, suffix: '/7', label: 'Suporte Ativo' },
+    { target: 50, suffix: '+', label: 'operações analisadas' },
+    { target: 98, suffix: '%', label: 'aderência à implementação' },
+    { target: 3, suffix: 'x', label: 'potencial médio de ganho' },
+    { target: 24, suffix: '/7', label: 'monitoramento contínuo' },
 ];
 
 const About = () => {
@@ -29,20 +29,19 @@ const About = () => {
             <div className="container">
                 <div className={`about__grid ${isInView ? 'in-view' : ''}`}>
                     <div className="about__text">
-                        <span className="about__label">Sobre Nós</span>
+                        <span className="about__label">Sobre nós</span>
                         <h2 className="about__title">
-                            Conectamos IA ao mundo <span className="text-gradient">real</span>
+                            Estratégia, dados e execução em um nível <span className="text-gradient">AAA</span>
                         </h2>
                         <p className="about__description">
-                            Somos uma agência especializada em inteligência artificial aplicada.
-                            Não vendemos tecnologia — entregamos soluções que funcionam.
-                            Cada projeto começa com o entendimento profundo do seu negócio
-                            e termina com resultados mensuráveis.
+                            Somos uma agência de soluções em IA para empresas que não querem experimentar tecnologia,
+                            mas capturar valor real. Entramos no negócio, entendemos o contexto operacional e desenhamos
+                            uma solução que faça sentido para a sua realidade, seu time e sua margem.
                         </p>
                         <p className="about__description">
-                            Nossa equipe combina expertise técnica em machine learning,
-                            processamento de linguagem natural e automação com visão
-                            estratégica de negócios.
+                            Nossa atuação combina diagnóstico estratégico, arquitetura de dados, automação inteligente
+                            e implantação assistida. O foco não é entregar um protótipo bonito: é colocar IA para operar,
+                            reduzir atrito e aumentar performance com previsibilidade.
                         </p>
                     </div>
 

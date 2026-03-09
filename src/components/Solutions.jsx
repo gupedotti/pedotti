@@ -8,8 +8,8 @@ const solutions = [
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
         ),
-        title: 'Chatbots Inteligentes',
-        description: 'Assistentes virtuais com IA conversacional que entendem contexto, aprendem com interações e resolvem problemas reais dos seus clientes.',
+        title: 'Agentes conversacionais',
+        description: 'Agentes treinados para atendimento, vendas, suporte e qualificação, com contexto de negócio e integração aos seus canais.',
     },
     {
         icon: (
@@ -17,8 +17,8 @@ const solutions = [
                 <path d="M12 20V10" /><path d="M18 20V4" /><path d="M6 20v-4" />
             </svg>
         ),
-        title: 'Análise Preditiva',
-        description: 'Modelos de machine learning que antecipam tendências, identificam padrões ocultos e transformam dados brutos em decisões estratégicas.',
+        title: 'Análise preditiva',
+        description: 'Modelos que antecipam demanda, risco, churn, inadimplência e comportamento operacional para decisões mais rápidas e mais precisas.',
     },
     {
         icon: (
@@ -26,8 +26,8 @@ const solutions = [
                 <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="M9 21V9" />
             </svg>
         ),
-        title: 'Automação de Processos',
-        description: 'Workflows inteligentes que eliminam tarefas repetitivas, reduzem erros e liberam sua equipe para o que realmente importa.',
+        title: 'Automação inteligente',
+        description: 'Fluxos que substituem tarefas manuais, padronizam execução e liberam sua equipe para atividades de maior valor.',
     },
     {
         icon: (
@@ -35,8 +35,8 @@ const solutions = [
                 <circle cx="12" cy="12" r="3" /><path d="M12 1v6m0 6v6" /><path d="M1 12h6m6 0h6" /><path d="M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24" /><path d="M19.78 4.22l-4.24 4.24m-3.08 3.08l-4.24 4.24" />
             </svg>
         ),
-        title: 'Visão Computacional',
-        description: 'Sistemas de reconhecimento visual para controle de qualidade, segurança e análise de imagens em tempo real com precisão superior.',
+        title: 'Visão computacional',
+        description: 'Sistemas para inspeção, segurança, leitura visual e análise de imagens em tempo real com aplicação industrial e operacional.',
     },
     {
         icon: (
@@ -44,8 +44,8 @@ const solutions = [
                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
             </svg>
         ),
-        title: 'Integrações Customizadas',
-        description: 'Conectamos IA aos seus sistemas existentes — ERPs, CRMs, plataformas de e-commerce — sem interromper suas operações.',
+        title: 'Integrações sob medida',
+        description: 'Conectamos IA ao seu ERP, CRM, BI, e-commerce ou stack interno para que a solução funcione dentro do fluxo que sua operação já utiliza.',
     },
     {
         icon: (
@@ -53,8 +53,8 @@ const solutions = [
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
             </svg>
         ),
-        title: 'Consultoria em IA',
-        description: 'Diagnóstico completo do seu negócio, identificação de oportunidades e roadmap estratégico para implementação de inteligência artificial.',
+        title: 'Consultoria executiva em IA',
+        description: 'Mapeamos oportunidades, priorizamos casos de uso e estruturamos um roadmap para implantação segura e economicamente viável.',
     },
 ];
 
@@ -67,10 +67,10 @@ const Solutions = () => {
                 <div className={`solutions__header ${isInView ? 'in-view' : ''}`}>
                     <span className="solutions__label">Soluções</span>
                     <h2 className="solutions__title">
-                        Tecnologia que <span className="text-gradient">resolve</span>
+                        Soluções desenhadas para o seu <span className="text-gradient">cenário real</span>
                     </h2>
                     <p className="solutions__subtitle">
-                        Cada solução é desenvolvida sob medida para o seu desafio específico.
+                        Não trabalhamos com pacotes genéricos. Cada entrega nasce de um problema concreto, metas claras e integração com a sua operação.
                     </p>
                 </div>
 

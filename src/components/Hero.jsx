@@ -69,7 +69,7 @@ const Hero = () => {
                 </h1>
 
                 <p className="hero__subtitle animate-fade-in-up delay-200">
-                    Soluções de inteligência artificial personalizadas
+                    Soluções de inteligência artificial personalizadas{' '}
                     <br className="hero__br-desktop" />
                     para escalar operações e aumentar eficiência.
                 </p>

@@ -22,7 +22,8 @@ const stats = [
 ];
 
 const About = () => {
-    const [ref, isInView] = useInView();
+    const [ref, isInView] = useInView({ threshold: 0.1 });
+    const [statsRef, statsInView] = useInView({ threshold: 0.5 }); // Exige no mínimo 50% de visibilidade
 
     return (
         <section className="about section" id="sobre" ref={ref} aria-labelledby="about-title">
@@ -45,14 +46,14 @@ const About = () => {
                         </p>
                     </div>
 
-                    <div className="about__stats">
+                    <div className="about__stats" ref={statsRef}>
                         {stats.map((stat, i) => (
                             <AnimatedStat
                                 key={i}
                                 target={stat.target}
                                 suffix={stat.suffix}
                                 label={stat.label}
-                                isInView={isInView}
+                                isInView={statsInView}
                             />
                         ))}
                     </div>

@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Clients from './components/Clients';
 import About from './components/About';
 import Solutions from './components/Solutions';
 import Process from './components/Process';
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <Clients />
         <About />
         <Solutions />
         <Process />

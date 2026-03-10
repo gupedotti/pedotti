@@ -1,0 +1,117 @@
+/* ========================================
+   Clients Logo Strip
+   ======================================== */
+
+.clients {
+    padding: var(--space-3xl) 0;
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.clients__label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-tertiary);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.clients__track {
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+}
+
+.clients__slider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4xl);
+    width: max-content;
+    animation: clientsScroll 25s linear infinite;
+}
+
+.clients__slider:hover {
+    animation-play-state: paused;
+}
+
+.clients__item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+}
+
+.clients__item--large {
+    height: 56px;
+}
+
+.clients__item--large .clients__logo {
+    max-width: 200px;
+}
+
+.clients__logo {
+    height: 100%;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.45);
+    opacity: 0.5;
+    transition: opacity var(--transition-base), filter var(--transition-base);
+}
+
+.clients__logo:hover {
+    filter: grayscale(100%) brightness(0.3);
+    opacity: 0.7;
+}
+
+@keyframes clientsScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .clients {
+        padding: var(--space-2xl) 0;
+    }
+
+    .clients__slider {
+        gap: var(--space-3xl);
+        animation-duration: 20s;
+    }
+
+    .clients__item {
+        height: 28px;
+    }
+
+    .clients__item--large {
+        height: 44px;
+    }
+
+    .clients__item--large .clients__logo {
+        max-width: 160px;
+    }
+
+    .clients__logo {
+        max-width: 110px;
+    }
+}

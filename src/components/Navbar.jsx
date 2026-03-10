@@ -5,10 +5,27 @@ const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [logoLoaded, setLogoLoaded] = useState(false);
+    const [scrollDirection, setScrollDirection] = useState('up');
 
     useEffect(() => {
+        let lastScrollY = window.scrollY;
+
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            const currentScrollY = window.scrollY;
+            setScrolled(currentScrollY > 50);
+
+            // Determina se subiu ou desceu o scroll
+            if (currentScrollY > 100) {
+                if (currentScrollY > lastScrollY) {
+                    setScrollDirection('down');
+                } else {
+                    setScrollDirection('up');
+                }
+            } else {
+                setScrollDirection('up'); // Sempre force o menu pra baixo no topo da página
+            }
+
+            lastScrollY = currentScrollY;
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -50,8 +67,12 @@ const Navbar = () => {
         }, 50);
     }, []);
 
+    // Se estiver descendo (down), aplica a classe que sobe o menu da tela no mobile
     return (
-        <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} aria-label="Navegação principal">
+        <nav
+            className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${scrollDirection === 'down' ? 'navbar--hidden-mobile' : ''}`}
+            aria-label="Navegação principal"
+        >
             <div className="navbar__inner">
                 <a
                     href="#"

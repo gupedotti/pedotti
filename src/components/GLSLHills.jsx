@@ -155,9 +155,19 @@ const GLSLHills = ({ width = '100vw', height = '100vh', cameraZ = 125, planeSize
         const clock = new THREE.Clock();
         const plane = new Plane();
 
+        let lastWidth = window.innerWidth;
         const resize = () => {
             const canvas = canvasRef.current;
             if (!canvas) return;
+
+            // Ignora o redimensionamento se apenas a altura mudar no mobile (isso acontece
+            // quando a barra de endereço do navegador some/aparece durante o scroll, causando o pulo).
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if (isMobile && window.innerWidth === lastWidth) {
+                return;
+            }
+            lastWidth = window.innerWidth;
+
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             camera.aspect = window.innerWidth / window.innerHeight;

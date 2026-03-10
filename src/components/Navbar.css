@@ -9,7 +9,8 @@
     right: 0;
     z-index: 1000;
     padding: 1.25rem 0;
-    transition: padding var(--transition-base), background var(--transition-base), border-color var(--transition-base);
+    /* Adicionado a transição de transform (subir e descer) de forma super suave */
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), padding var(--transition-base), background var(--transition-base), border-color var(--transition-base);
 }
 
 .navbar--scrolled {
@@ -150,6 +151,13 @@
    Mobile
    ======================================== */
 @media (max-width: 768px) {
+
+    /* Esconde o navbar sumindo com a barra para cima quando scrolado */
+    .navbar--hidden-mobile {
+        transform: translateY(-100%);
+        pointer-events: none;
+    }
+
     .navbar__overlay {
         display: block;
         position: fixed;

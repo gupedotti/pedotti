@@ -25,12 +25,12 @@ const About = () => {
     const [ref, isInView] = useInView();
 
     return (
-        <section className="about section" id="sobre" ref={ref}>
+        <section className="about section" id="sobre" ref={ref} aria-labelledby="about-title">
             <div className="container">
                 <div className={`about__grid ${isInView ? 'in-view' : ''}`}>
                     <div className="about__text">
                         <span className="about__label">Sobre nós</span>
-                        <h2 className="about__title">
+                        <h2 className="about__title" id="about-title">
                             Estratégia, dados e execução em um nível <span className="text-gradient">AAA</span>
                         </h2>
                         <p className="about__description">

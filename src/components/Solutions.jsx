@@ -62,11 +62,11 @@ const Solutions = () => {
     const [ref, isInView] = useInView();
 
     return (
-        <section className="solutions section" id="solucoes" ref={ref}>
+        <section className="solutions section" id="solucoes" ref={ref} aria-labelledby="solutions-title">
             <div className="container">
                 <div className={`solutions__header ${isInView ? 'in-view' : ''}`}>
                     <span className="solutions__label">Soluções</span>
-                    <h2 className="solutions__title">
+                    <h2 className="solutions__title" id="solutions-title">
                         Soluções desenhadas para o seu <span className="text-gradient">cenário real</span>
                     </h2>
                     <p className="solutions__subtitle">
@@ -74,22 +74,23 @@ const Solutions = () => {
                     </p>
                 </div>
 
-                <div className={`solutions__grid ${isInView ? 'in-view' : ''}`}>
+                <div className={`solutions__grid ${isInView ? 'in-view' : ''}`} role="list">
                     {solutions.map((solution, i) => (
-                        <div
+                        <article
                             key={i}
                             className="solutions__card"
                             style={{ transitionDelay: `${200 + i * 80}ms` }}
+                            role="listitem"
                         >
-                            <div className="solutions__card-icon">{solution.icon}</div>
+                            <div className="solutions__card-icon" aria-hidden="true">{solution.icon}</div>
                             <h3 className="solutions__card-title">{solution.title}</h3>
                             <p className="solutions__card-description">{solution.description}</p>
-                            <div className="solutions__card-arrow">
+                            <div className="solutions__card-arrow" aria-hidden="true">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                     <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </div>
-                        </div>
+                        </article>
                     ))}
                 </div>
             </div>

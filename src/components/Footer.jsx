@@ -4,19 +4,19 @@ const Footer = () => {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="footer">
+        <footer className="footer" role="contentinfo">
             <div className="container">
                 <div className="footer__inner">
                     <div className="footer__brand">
-                        <img src="/logo-pedotti.png" alt="Pedotti" className="footer__logo" />
+                        <img src="/logo-pedotti.png" alt="Pedotti — Agência de Soluções em IA" className="footer__logo" width="120" height="32" loading="lazy" />
                     </div>
 
-                    <div className="footer__nav">
+                    <nav className="footer__nav" aria-label="Navegação do rodapé">
                         <a href="#sobre" className="footer__link">Sobre</a>
                         <a href="#solucoes" className="footer__link">Soluções</a>
                         <a href="#processo" className="footer__link">Processo</a>
                         <a href="#contato" className="footer__link">Contato</a>
-                    </div>
+                    </nav>
 
                     <div className="footer__social">
                         <a href="https://www.linkedin.com/company/pedotti-consultoria-em-marketing-digital" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="LinkedIn">

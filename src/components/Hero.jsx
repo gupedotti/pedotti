@@ -51,18 +51,18 @@ const Hero = () => {
     };
 
     return (
-        <section className="hero" id="hero">
-            <div className="hero__bg">
+        <section className="hero" id="hero" aria-label="Apresentação da Pedotti">
+            <div className="hero__bg" aria-hidden="true">
                 <GLSLHills speed={0.3} cameraZ={130} />
             </div>
 
-            <div className="hero__overlay" />
+            <div className="hero__overlay" aria-hidden="true" />
 
             <div className="hero__content">
                 <h1 className="hero__title animate-fade-in-up">
                     IA sob medida para
                     <br />
-                    <span className="text-gradient hero__title-typed">
+                    <span className="text-gradient hero__title-typed" aria-label={heroPhrases.join(', ')}>
                         {displayedText}
                         <span className="hero__caret" aria-hidden="true" />
                     </span>
@@ -74,20 +74,20 @@ const Hero = () => {
                     para escalar operações e aumentar eficiência.
                 </p>
 
-                <div className="hero__actions animate-fade-in-up delay-400">
+                <nav className="hero__actions animate-fade-in-up delay-400" aria-label="Ações principais">
                     <button className="hero__btn hero__btn--primary" onClick={() => scrollToSection('contato')}>
                         Converse conosco
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                             <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </button>
                     <button className="hero__btn hero__btn--secondary" onClick={() => scrollToSection('solucoes')}>
                         Explorar soluções
                     </button>
-                </div>
+                </nav>
             </div>
 
-            <div className="hero__scroll-indicator animate-fade-in delay-800">
+            <div className="hero__scroll-indicator animate-fade-in delay-800" aria-hidden="true">
                 <div className="hero__scroll-line" />
             </div>
         </section>

@@ -1,0 +1,48 @@
+# Pedotti — Agência de Soluções em Inteligência Artificial Sob Medida
+
+> A Pedotti é uma agência brasileira especializada em soluções de inteligência artificial sob medida para empresas. Não trabalhamos com pacotes genéricos — cada entrega nasce de um problema concreto, metas claras e integração com a operação do cliente.
+
+## O que fazemos
+
+A Pedotti desenvolve soluções personalizadas de IA para empresas que buscam escala, eficiência e resultado real. Combinamos diagnóstico estratégico, arquitetura de dados, automação inteligente e implantação assistida.
+
+## Soluções
+
+### Agentes Conversacionais
+Agentes de IA treinados para atendimento, vendas, suporte e qualificação, com contexto de negócio e integração aos canais da empresa.
+
+### Análise Preditiva
+Modelos que antecipam demanda, risco, churn, inadimplência e comportamento operacional para decisões mais rápidas e precisas.
+
+### Automação Inteligente
+Fluxos automatizados que substituem tarefas manuais, padronizam execução e liberam equipes para atividades de maior valor.
+
+### Visão Computacional
+Sistemas para inspeção, segurança, leitura visual e análise de imagens em tempo real com aplicação industrial e operacional.
+
+### Integrações Sob Medida
+Conexão de IA ao ERP, CRM, BI, e-commerce ou stack interno para funcionamento integrado ao fluxo operacional existente.
+
+### Consultoria Executiva em IA
+Mapeamento de oportunidades, priorização de casos de uso e estruturação de roadmap para implantação segura e economicamente viável de IA.
+
+## Processo de trabalho
+
+1. **Diagnóstico** — Investigamos operação, dados, gargalos e alavancas para identificar onde a IA gera retorno com menos fricção e mais velocidade.
+2. **Estratégia** — Definimos caso de uso, arquitetura, integrações, metas de performance e escopo executivo antes de qualquer desenvolvimento.
+3. **Desenvolvimento** — Construímos a solução com dados reais, ciclos curtos de validação e foco em aderência operacional.
+4. **Implantação** — Colocamos a IA em produção, monitoramos desempenho e refinamos continuamente para sustentar resultado.
+
+## Números
+
+- 50+ operações analisadas
+- 98% de aderência à implementação
+- 3x potencial médio de ganho
+- 24/7 monitoramento contínuo
+
+## Contato
+
+- WhatsApp: +55 11 98874-7672
+- LinkedIn: https://www.linkedin.com/company/pedotti-consultoria-em-marketing-digital
+- Instagram: https://www.instagram.com/pedotti.marketing/
+- Site: https://pedotti.com.br

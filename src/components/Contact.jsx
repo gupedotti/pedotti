@@ -6,12 +6,12 @@ const Contact = () => {
     const [ref, isInView] = useInView();
 
     return (
-        <section className="contact section" id="contato" ref={ref}>
+        <section className="contact section" id="contato" ref={ref} aria-labelledby="contact-title">
             <div className="container">
                 <div className={`contact__wrapper ${isInView ? 'in-view' : ''}`}>
                     <div className="contact__content">
                         <span className="contact__label">Próximo passo</span>
-                        <h2 className="contact__title">
+                        <h2 className="contact__title" id="contact-title">
                             Se existe um gargalo crítico, existe uma solução em <span className="text-gradient">IA</span> para ele
                         </h2>
                         <p className="contact__description">
@@ -41,7 +41,7 @@ const Contact = () => {
                         </a>
                     </div>
 
-                    <div className="contact__visual">
+                    <div className="contact__visual" aria-hidden="true">
                         <Globe />
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -11,7 +11,7 @@ const Navbar = () => {
             setScrolled(window.scrollY > 50);
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         const timer = setTimeout(() => setLogoLoaded(true), 100);
 
         return () => {
@@ -21,41 +21,61 @@ const Navbar = () => {
     }, []);
 
     useEffect(() => {
-        const previousOverflow = document.body.style.overflow;
-        const previousTouchAction = document.body.style.touchAction;
+        if (!menuOpen) return;
 
-        if (menuOpen) {
-            document.body.style.overflow = 'hidden';
-            document.body.style.touchAction = 'none';
-        } else {
-            document.body.style.overflow = previousOverflow;
-            document.body.style.touchAction = previousTouchAction;
-        }
+        const scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.overflow = 'hidden';
 
         return () => {
-            document.body.style.overflow = previousOverflow;
-            document.body.style.touchAction = previousTouchAction;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            document.body.style.overflow = '';
+            window.scrollTo(0, scrollY);
         };
     }, [menuOpen]);
 
-    const scrollToSection = (id) => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-            setMenuOpen(false);
-        }
-    };
+    const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+    const scrollToSection = useCallback((id) => {
+        setMenuOpen(false);
+        setTimeout(() => {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+    }, []);
 
     return (
-        <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+        <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} aria-label="Navegação principal">
             <div className="navbar__inner">
-                <a href="#" className="navbar__logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); setMenuOpen(false); }}>
+                <a
+                    href="#"
+                    className="navbar__logo"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setMenuOpen(false);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                >
                     <img
                         src="/logo-pedotti.png"
-                        alt="Pedotti"
+                        alt="Pedotti — Início"
                         className={`navbar__logo-img ${logoLoaded ? 'navbar__logo-img--loaded' : ''}`}
+                        width="120"
+                        height="32"
                     />
                 </a>
+
+                <div
+                    className={`navbar__overlay ${menuOpen ? 'navbar__overlay--open' : ''}`}
+                    onClick={closeMenu}
+                    aria-hidden="true"
+                />
 
                 <div className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
                     <button className="navbar__link" onClick={() => scrollToSection('sobre')}>Sobre</button>
@@ -70,13 +90,13 @@ const Navbar = () => {
 
                 <button
                     className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
-                    onClick={() => setMenuOpen((current) => !current)}
+                    onClick={() => setMenuOpen((v) => !v)}
                     aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
                     aria-expanded={menuOpen}
                 >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span />
+                    <span />
+                    <span />
                 </button>
             </div>
         </nav>

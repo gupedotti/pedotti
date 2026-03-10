@@ -28,11 +28,11 @@ const Process = () => {
     const [ref, isInView] = useInView();
 
     return (
-        <section className="process section" id="processo" ref={ref}>
+        <section className="process section" id="processo" ref={ref} aria-labelledby="process-title">
             <div className="container">
                 <div className={`process__header ${isInView ? 'in-view' : ''}`}>
                     <span className="process__label">Método</span>
-                    <h2 className="process__title">
+                    <h2 className="process__title" id="process-title">
                         Da oportunidade ao impacto com <span className="text-gradient">método e controle</span>
                     </h2>
                     <p className="process__subtitle">
@@ -40,22 +40,22 @@ const Process = () => {
                     </p>
                 </div>
 
-                <div className={`process__steps ${isInView ? 'in-view' : ''}`}>
+                <ol className={`process__steps ${isInView ? 'in-view' : ''}`}>
                     {steps.map((step, i) => (
-                        <div
+                        <li
                             key={i}
                             className="process__step"
                             style={{ transitionDelay: `${300 + i * 150}ms` }}
                         >
-                            <div className="process__step-number">{step.number}</div>
+                            <div className="process__step-number" aria-hidden="true">{step.number}</div>
                             <div className="process__step-content">
                                 <h3 className="process__step-title">{step.title}</h3>
                                 <p className="process__step-description">{step.description}</p>
                             </div>
-                            {i < steps.length - 1 && <div className="process__step-connector" />}
-                        </div>
+                            {i < steps.length - 1 && <div className="process__step-connector" aria-hidden="true" />}
+                        </li>
                     ))}
-                </div>
+                </ol>
             </div>
         </section>
     );

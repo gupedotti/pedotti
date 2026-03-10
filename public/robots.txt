@@ -30,7 +30,7 @@ User-agent: cohere-ai
 Allow: /
 
 User-agent: Meta-ExternalAgent
-Allow: /
+Disallow: /admin/
 
-# Sitemap
-Sitemap: https://pedotti.com.br/sitemap.xml
+# Sitemap URL
+Sitemap: https://www.pedotti.com.br/sitemap.xml

@@ -41,28 +41,32 @@ const Clients = () => {
                 <p className="clients__label">Empresas que confiam em nós</p>
                 <div className="clients__track">
                     <div className="clients__slider">
-                        {clients.map((client, i) => (
-                            <div className={`clients__item ${client.large ? 'clients__item--large' : ''}`} key={i}>
-                                <img
-                                    src={client.logo}
-                                    alt={client.name}
-                                    className="clients__logo"
-                                    loading="lazy"
-                                    draggable="false"
-                                />
-                            </div>
-                        ))}
-                        {clients.map((client, i) => (
-                            <div className={`clients__item ${client.large ? 'clients__item--large' : ''}`} key={`dup-${i}`} aria-hidden="true">
-                                <img
-                                    src={client.logo}
-                                    alt=""
-                                    className="clients__logo"
-                                    loading="lazy"
-                                    draggable="false"
-                                />
-                            </div>
-                        ))}
+                        <div className="clients__slider-group">
+                            {clients.map((client, i) => (
+                                <div className={`clients__item ${client.large ? 'clients__item--large' : ''}`} key={i}>
+                                    <img
+                                        src={client.logo}
+                                        alt={client.name}
+                                        className="clients__logo"
+                                        loading="lazy"
+                                        draggable="false"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                        <div className="clients__slider-group" aria-hidden="true">
+                            {clients.map((client, i) => (
+                                <div className={`clients__item ${client.large ? 'clients__item--large' : ''}`} key={`dup-${i}`}>
+                                    <img
+                                        src={client.logo}
+                                        alt=""
+                                        className="clients__logo"
+                                        loading="lazy"
+                                        draggable="false"
+                                    />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

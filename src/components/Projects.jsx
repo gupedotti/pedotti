@@ -7,6 +7,7 @@ const projects = [
     { id: 1, image: '/projeto1.jpg' },
     { id: 2, image: '/projeto2.jpg' },
     { id: 3, image: '/projeto3.jpg' },
+    { id: 4, image: '/projeto4.jpg' }
 ];
 
 const Projects = () => {

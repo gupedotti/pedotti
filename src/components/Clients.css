@@ -20,28 +20,30 @@
 
 .clients__track {
     overflow: hidden;
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 10%,
-        black 90%,
-        transparent 100%
-    );
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 10%,
-        black 90%,
-        transparent 100%
-    );
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
 }
 
 .clients__slider {
     display: flex;
-    align-items: center;
-    gap: var(--space-4xl);
     width: max-content;
     animation: clientsScroll 25s linear infinite;
+}
+
+.clients__slider-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4xl);
+    padding-right: var(--space-4xl);
+    /* Ponto-chave: O padding no grupo garante que o loop inicie sem salto */
 }
 
 .clients__slider:hover {
@@ -83,6 +85,7 @@
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -95,8 +98,12 @@
     }
 
     .clients__slider {
-        gap: var(--space-3xl);
         animation-duration: 20s;
+    }
+
+    .clients__slider-group {
+        gap: var(--space-3xl);
+        padding-right: var(--space-3xl);
     }
 
     .clients__item {

@@ -35,7 +35,7 @@
 .clients__slider {
     display: flex;
     width: max-content;
-    animation: clientsScroll 25s linear infinite;
+    animation: clientsScroll 100s linear infinite;
 }
 
 .clients__slider-group {
@@ -98,7 +98,7 @@
     }
 
     .clients__slider {
-        animation-duration: 20s;
+        animation-duration: 80s;
     }
 
     .clients__slider-group {

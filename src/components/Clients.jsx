@@ -42,7 +42,7 @@ const Clients = () => {
                 <div className="clients__track">
                     <div className="clients__slider">
                         <div className="clients__slider-group">
-                            {clients.map((client, i) => (
+                            {[...clients, ...clients, ...clients, ...clients].map((client, i) => (
                                 <div className={`clients__item ${client.large ? 'clients__item--large' : ''}`} key={i}>
                                     <img
                                         src={client.logo}
@@ -55,7 +55,7 @@ const Clients = () => {
                             ))}
                         </div>
                         <div className="clients__slider-group" aria-hidden="true">
-                            {clients.map((client, i) => (
+                            {[...clients, ...clients, ...clients, ...clients].map((client, i) => (
                                 <div className={`clients__item ${client.large ? 'clients__item--large' : ''}`} key={`dup-${i}`}>
                                     <img
                                         src={client.logo}

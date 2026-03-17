@@ -6,62 +6,53 @@ const API_TOKEN = 'openclaw-local-dev-token-2026';
 const HOOKS_URL = '/api/hooks/wake';
 const HOOKS_TOKEN = 'openclaw-hooks-token-2026';
 const MODEL = 'openclaw:main';
+const MOBILE_MEDIA_QUERY = '(max-width: 480px)';
 
 const SYSTEM_MESSAGE = {
     role: 'system',
-    content: `Você é Jarvis, assistente virtual da Pedotti — agência especializada em soluções de Inteligência Artificial sob medida.
+    content: `Você é Jarvis, consultor da Pedotti, agência especializada em soluções de Inteligência Artificial sob medida.
 
-## Sobre a Pedotti
-- Site: pedotti.com.br
-- E-mail: pedotti@agentmail.to
-- WhatsApp: +55 11 98874-7672
-- Serviços: Agentes Conversacionais, Análise Preditiva, Automação Inteligente, Visão Computacional, Integrações Sob Medida, Consultoria Executiva em IA.
+Sobre a Pedotti:
+Site: pedotti.com.br
+E-mail: pedotti@agentmail.to
+WhatsApp: +55 11 98874-7672
+Serviços: Agentes Conversacionais, Análise Preditiva, Automação Inteligente, Visão Computacional, Integrações Sob Medida, Consultoria Executiva em IA.
 
-## Tom e estilo
-- Tom executivo, direto e profissional. Sem informalidade excessiva.
-- PROIBIDO USAR EMOJIS. Isso é uma regra absoluta e inviolável. Nenhum emoji deve aparecer em nenhuma mensagem, jamais, sob nenhuma circunstância. Nem para cumprimentar, nem para encerrar, nem para destacar. Zero emojis.
-- Frases curtas e objetivas. Vá direto ao ponto.
-- Trate o visitante como um decisor de negócio. Fale sobre resultados, ROI e impacto operacional.
-- Chame o visitante pelo nome quando souber.
-- Use **negrito** para destacar pontos-chave e listas com marcadores quando listar itens.
-- Nunca invente dados, números ou cases. Se não souber, diga que vai conectar com o time técnico.
-- Responda sempre em português brasileiro.
-- Mantenha respostas concisas — no máximo 3-4 frases por mensagem, a menos que o visitante peça detalhamento.
+## Como você deve se comunicar
 
-## Fluxo obrigatório de conversa
-Siga estas etapas em ordem. Não pule nenhuma etapa.
+Você deve soar como uma PESSOA REAL. Um consultor humano experiente que trabalha na Pedotti. Nunca pareça um robô ou assistente virtual.
 
-**Etapa 1 — Coleta de dados básicos:**
-Na sua primeira mensagem, apresente-se e peça o nome do visitante.
-Depois, ao longo das próximas mensagens, colete de forma natural e conversacional:
-- Nome (primeira pergunta)
-- Empresa
-- Site da empresa (se houver)
-- Telefone de contato
+1. Escreva como um ser humano escreveria no chat. Linguagem natural, fluida, variada. Nada de respostas que pareçam template ou roteiro decorado.
+2. PROIBIDO USAR EMOJIS. Nenhum. Zero. Jamais. Isso inclui rostos, mãos, objetos, símbolos. Qualquer caractere emoji.
+3. PROIBIDO usar travessões (—), hifens como separadores, ou listas com marcadores (-, *, •) nas respostas. Escreva em frases e parágrafos corridos, como uma pessoa escreveria numa conversa por chat.
+4. Nunca use palavras ou expressões que denunciem que você é uma IA. Proibido: "como assistente", "fui programado", "não tenho capacidade", "como IA", "estou aqui para ajudar", "fico feliz", "com certeza!", "é um prazer". Fale como um profissional humano faria.
+5. Tom executivo, direto e profissional, mas caloroso e acolhedor. Cordial sem ser forçado.
+6. Frases curtas e objetivas. No máximo 2-3 frases por mensagem na maioria dos casos.
+7. Trate o visitante como um decisor de negócio. Fale sobre resultados, ROI e impacto operacional quando relevante.
+8. Chame o visitante pelo nome quando souber.
+9. Use **negrito** apenas para destacar pontos realmente importantes, com moderação.
+10. Nunca invente dados, números ou cases. Se não souber, diga que vai verificar com o time técnico.
+11. Responda sempre em português brasileiro.
 
-Peça uma informação por mensagem. Não peça tudo de uma vez. Seja natural, como uma conversa real.
+## Fluxo da conversa
 
-**Etapa 2 — Entender a necessidade (aprofundar antes de encerrar):**
-Após coletar os dados, faça perguntas estratégicas para entender a fundo a necessidade do visitante. Explore os seguintes pontos, um por mensagem, de forma natural e conversacional:
-- Qual é a principal dor ou desafio do negócio hoje?
-- Qual processo ou área da empresa mais se beneficiaria de automação ou IA?
-- Já utilizam alguma ferramenta ou solução de IA atualmente? Se sim, qual?
-- Qual o volume aproximado de operações/atendimentos/dados envolvidos?
-- Existe algum prazo ou urgência para implementar uma solução?
-- Qual o tamanho aproximado da equipe envolvida?
+Siga estas etapas em ordem. Não pule nenhuma.
 
-Não faça todas as perguntas mecanicamente — adapte conforme as respostas do visitante. Se uma resposta já cobrir outro ponto, não repita. O objetivo é ter contexto suficiente para que o time comercial da Pedotti entre em contato já preparado. Ofereça insights relevantes ao longo da conversa. Faça no mínimo 3-4 trocas nesta etapa antes de considerar encerrar.
+Etapa 1, Coleta de dados básicos:
+Na sua primeira resposta, cumprimente de forma natural e peça o nome do visitante. Depois, ao longo das próximas mensagens, colete de forma natural e conversacional: nome, empresa, site da empresa (se houver) e telefone de contato. Peça uma informação por mensagem. Seja natural, como uma conversa real entre duas pessoas.
 
-**Etapa 3 — Encerramento:**
-Somente encerre quando tiver informações suficientes sobre a necessidade, o cenário atual e a expectativa do visitante (geralmente após 4-5 trocas na etapa 2). Diga exatamente:
-"Obrigado pelas informações, [nome]. Já notificamos o setor responsável para entrar em contato com você."
-Em seguida, pergunte: "Mais alguma dúvida?"
-- Se o visitante disser que não tem mais dúvidas → agradeça e encerre com "Obrigado pelo contato. A equipe da Pedotti retornará em breve."
-- Se tiver outra dúvida → responda ou colete a dúvida, diga que encaminhou para os responsáveis, e pergunte novamente "Mais alguma dúvida?"
+Etapa 2, Entender a necessidade:
+Após coletar os dados, faça perguntas estratégicas para entender a necessidade do visitante. Explore pontos como: qual a principal dor ou desafio do negócio, qual processo mais se beneficiaria de automação, se já usam alguma ferramenta, qual o volume de operações, se existe urgência, e o tamanho da equipe. Não faça todas as perguntas mecanicamente. Adapte conforme as respostas. Se uma resposta já cobrir outro ponto, não repita. Ofereça insights relevantes ao longo da conversa. Faça no mínimo 3-4 trocas nesta etapa.
 
-IMPORTANTE: Você DEVE seguir esse fluxo. Não pule a coleta de dados. Não vá direto para soluções sem antes ter nome, empresa, site e telefone.
+Etapa 3, Encerramento:
+Somente encerre quando tiver informações suficientes (geralmente após 4-5 trocas na etapa 2). Diga que já notificou o setor responsável para entrar em contato, usando o nome do visitante. Pergunte se tem mais alguma dúvida. Se não tiver, agradeça e encerre dizendo que a equipe retornará em breve.
 
-REGRA FINAL ABSOLUTA: É ESTRITAMENTE PROIBIDO usar qualquer emoji nas suas respostas. Nenhum. Zero. Isso inclui rostos, mãos, objetos, símbolos — qualquer caractere emoji. Violar esta regra é inaceitável.`,
+IMPORTANTE: Siga esse fluxo. Não pule a coleta de dados. Não vá direto para soluções sem antes ter nome, empresa, site e telefone.
+
+REGRAS FINAIS ABSOLUTAS:
+1. PROIBIDO usar qualquer emoji. Nenhum. Zero.
+2. PROIBIDO usar travessões, hifens decorativos, ou listas com marcadores nas mensagens. Escreva sempre em texto corrido.
+3. Você é Jarvis, um CONSULTOR HUMANO da Pedotti. Nunca revele ou sugira que é uma inteligência artificial.`,
 };
 
 const WELCOME_MESSAGE = {
@@ -152,24 +143,86 @@ const ChatWidget = () => {
     const abortRef = useRef(null);
     const visitorId = useRef(getVisitorId());
 
-    // Listen for custom event from CTA buttons
+    const scrollToBottom = useCallback((behavior = 'smooth') => {
+        messagesEndRef.current?.scrollIntoView({ behavior, block: 'end' });
+    }, []);
+
+    const syncMobileViewport = useCallback(() => {
+        const root = document.documentElement;
+        const vv = window.visualViewport;
+        const viewportHeight = vv?.height ?? window.innerHeight;
+        const viewportOffsetTop = vv?.offsetTop ?? 0;
+        const keyboardInset = vv
+            ? Math.max(0, window.innerHeight - vv.height - vv.offsetTop)
+            : 0;
+
+        root.style.setProperty('--chat-viewport-height', `${viewportHeight}px`);
+        root.style.setProperty('--chat-viewport-offset-top', `${viewportOffsetTop}px`);
+        root.style.setProperty('--chat-keyboard-inset', `${keyboardInset}px`);
+    }, []);
+
+    const clearMobileViewport = useCallback(() => {
+        const root = document.documentElement;
+        root.style.removeProperty('--chat-viewport-height');
+        root.style.removeProperty('--chat-viewport-offset-top');
+        root.style.removeProperty('--chat-keyboard-inset');
+    }, []);
+
     useEffect(() => {
         const handler = () => setOpen(true);
         window.addEventListener('open-chat', handler);
         return () => window.removeEventListener('open-chat', handler);
     }, []);
 
-    // Auto-scroll to bottom
     useEffect(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [messages]);
+        if (!open) return;
 
-    // Focus input when opened
+        const vv = window.visualViewport;
+        const handleViewportChange = () => {
+            if (!window.matchMedia(MOBILE_MEDIA_QUERY).matches) {
+                clearMobileViewport();
+                return;
+            }
+
+            syncMobileViewport();
+            requestAnimationFrame(() => scrollToBottom('auto'));
+        };
+
+        document.documentElement.classList.add('chat-open');
+        document.body.classList.add('chat-open');
+        handleViewportChange();
+
+        window.addEventListener('resize', handleViewportChange);
+        window.addEventListener('orientationchange', handleViewportChange);
+        vv?.addEventListener('resize', handleViewportChange);
+        vv?.addEventListener('scroll', handleViewportChange);
+
+        return () => {
+            document.documentElement.classList.remove('chat-open');
+            document.body.classList.remove('chat-open');
+            clearMobileViewport();
+            window.removeEventListener('resize', handleViewportChange);
+            window.removeEventListener('orientationchange', handleViewportChange);
+            vv?.removeEventListener('resize', handleViewportChange);
+            vv?.removeEventListener('scroll', handleViewportChange);
+        };
+    }, [clearMobileViewport, open, scrollToBottom, syncMobileViewport]);
+
     useEffect(() => {
-        if (open) {
-            setTimeout(() => inputRef.current?.focus(), 100);
-        }
-    }, [open]);
+        const behavior = messages[messages.length - 1]?.role === 'bot' ? 'auto' : 'smooth';
+        scrollToBottom(behavior);
+    }, [messages, scrollToBottom]);
+
+    useEffect(() => {
+        if (!open) return undefined;
+
+        const timer = window.setTimeout(() => {
+            inputRef.current?.focus();
+            scrollToBottom('auto');
+        }, 100);
+
+        return () => window.clearTimeout(timer);
+    }, [open, scrollToBottom]);
 
     const sendMessage = useCallback(async () => {
         const text = input.trim();
@@ -180,21 +233,21 @@ const ChatWidget = () => {
         setInput('');
         setIsStreaming(true);
 
-        // Notificação de nova mensagem do visitante (fire-and-forget)
         try {
             fetch(HOOKS_URL, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${HOOKS_TOKEN}`,
+                    Authorization: `Bearer ${HOOKS_TOKEN}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     text: `CHAT SITE pedotti.com.br | Visitante: ${visitorId.current} | Mensagem: "${text}"`,
                 }),
             });
-        } catch { /* silencioso */ }
+        } catch {
+            // fire-and-forget
+        }
 
-        // Build conversation history for API with system prompt
         const apiMessages = [SYSTEM_MESSAGE];
         for (const m of messages) {
             if (m.role === 'user' || m.role === 'bot') {
@@ -216,7 +269,7 @@ const ChatWidget = () => {
             const fetchOptions = {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${API_TOKEN}`,
+                    Authorization: `Bearer ${API_TOKEN}`,
                     'Content-Type': 'application/json',
                 },
                 signal: controller.signal,
@@ -229,7 +282,7 @@ const ChatWidget = () => {
                 user: visitorId.current,
             };
 
-            let res = await fetch(API_URL, {
+            const res = await fetch(API_URL, {
                 ...fetchOptions,
                 body: JSON.stringify(streamPayload),
             });
@@ -240,7 +293,6 @@ const ChatWidget = () => {
                 throw new Error(`HTTP ${res.status}`);
             }
 
-            // SSE streaming path
             const reader = res.body.getReader();
             const decoder = new TextDecoder();
             let buffer = '';
@@ -294,19 +346,15 @@ const ChatWidget = () => {
         }
     }, [input, isStreaming, messages]);
 
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            sendMessage();
-        }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        sendMessage();
     };
 
     return (
         <>
-            {/* Chat window */}
             {open && (
-                <div className="chat-window" role="dialog" aria-label="Chat com Jarvis">
-                    {/* Header */}
+                <div className="chat-window" role="dialog" aria-modal="true" aria-label="Chat com Jarvis">
                     <div className="chat-window__header">
                         <div className="chat-window__avatar">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -318,6 +366,7 @@ const ChatWidget = () => {
                             <div className="chat-window__status">Assistente Pedotti</div>
                         </div>
                         <button
+                            type="button"
                             className="chat-window__close"
                             onClick={() => setOpen(false)}
                             aria-label="Fechar chat"
@@ -328,7 +377,6 @@ const ChatWidget = () => {
                         </button>
                     </div>
 
-                    {/* Messages */}
                     <div className="chat-window__messages">
                         {messages.map((msg, i) => (
                             <div key={i} className={`chat-msg chat-msg--${msg.role}`}>
@@ -348,20 +396,21 @@ const ChatWidget = () => {
                         <div ref={messagesEndRef} />
                     </div>
 
-                    {/* Input */}
-                    <div className="chat-window__input">
+                    <form className="chat-window__input" onSubmit={handleSubmit}>
                         <input
                             ref={inputRef}
                             type="text"
                             placeholder="Digite sua mensagem..."
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
-                            onKeyDown={handleKeyDown}
+                            onFocus={() => window.setTimeout(() => scrollToBottom('auto'), 250)}
                             disabled={isStreaming}
+                            enterKeyHint="send"
+                            autoComplete="off"
                         />
                         <button
+                            type="submit"
                             className="chat-window__send"
-                            onClick={sendMessage}
                             disabled={!input.trim() || isStreaming}
                             aria-label="Enviar mensagem"
                         >
@@ -369,12 +418,12 @@ const ChatWidget = () => {
                                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
                             </svg>
                         </button>
-                    </div>
+                    </form>
                 </div>
             )}
 
-            {/* FAB button */}
             <button
+                type="button"
                 className={`chat-fab ${open ? 'chat-fab--open' : ''}`}
                 onClick={() => setOpen((v) => !v)}
                 aria-label={open ? 'Fechar chat' : 'Abrir chat'}

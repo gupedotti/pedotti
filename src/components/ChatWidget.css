@@ -1,6 +1,17 @@
 /* ========================================
-   Chat Widget — WhatsApp-style
+   Chat Widget - WhatsApp-style
    ======================================== */
+
+:root {
+    --chat-viewport-height: 100dvh;
+    --chat-viewport-offset-top: 0px;
+    --chat-keyboard-inset: 0px;
+}
+
+html.chat-open,
+body.chat-open {
+    overflow: hidden;
+}
 
 /* Floating trigger button */
 .chat-fab {
@@ -38,10 +49,10 @@
 /* Chat window */
 .chat-window {
     position: fixed;
-    bottom: 5.5rem;
     right: 1.5rem;
+    bottom: 5.5rem;
     width: 380px;
-    max-height: 520px;
+    height: min(520px, calc(100dvh - 7rem));
     background: var(--color-bg);
     border-radius: var(--radius-lg);
     box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12), 0 0 0 1px var(--color-border);
@@ -57,6 +68,7 @@
         opacity: 0;
         transform: translateY(12px) scale(0.96);
     }
+
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -71,6 +83,7 @@
     padding: 1rem 1.25rem;
     background: var(--color-text-primary);
     color: var(--color-bg);
+    flex-shrink: 0;
 }
 
 .chat-window__avatar {
@@ -121,14 +134,15 @@
 /* Messages area */
 .chat-window__messages {
     flex: 1;
+    min-height: 0;
     overflow-y: auto;
-    padding: 1rem 1rem 0.5rem;
+    padding: 1rem 1rem 0.75rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     background: #f0f0f0;
-    min-height: 280px;
-    max-height: 340px;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .chat-window__messages::-webkit-scrollbar {
@@ -234,9 +248,12 @@
 }
 
 @keyframes typingBounce {
-    0%, 60%, 100% {
+    0%,
+    60%,
+    100% {
         transform: translateY(0);
     }
+
     30% {
         transform: translateY(-4px);
     }
@@ -250,19 +267,23 @@
     padding: 0.75rem 1rem;
     background: var(--color-bg);
     border-top: 1px solid var(--color-border);
+    flex-shrink: 0;
 }
 
 .chat-window__input input {
     flex: 1;
+    min-width: 0;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-full);
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+    font-size: 16px;
     font-family: var(--font-primary);
     color: var(--color-text-primary);
     background: var(--color-bg-elevated);
     outline: none;
     transition: border-color var(--transition-fast);
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .chat-window__input input::placeholder {
@@ -274,8 +295,8 @@
 }
 
 .chat-window__send {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: var(--color-text-primary);
     color: var(--color-bg);
@@ -300,28 +321,34 @@
 /* Mobile responsive */
 @media (max-width: 480px) {
     .chat-window {
-        top: 0;
-        bottom: 0;
+        top: var(--chat-viewport-offset-top);
         right: 0;
+        bottom: auto;
         left: 0;
-        width: 100%;
-        height: 100dvh;
-        max-height: 100dvh;
+        width: 100vw;
+        height: var(--chat-viewport-height);
         border-radius: 0;
+        box-shadow: none;
+        animation: none;
+    }
+
+    .chat-window__header {
+        padding-top: max(1rem, env(safe-area-inset-top));
     }
 
     .chat-window__messages {
-        flex: 1;
-        max-height: none;
-        min-height: 0;
+        padding-bottom: max(0.75rem, calc(0.75rem + var(--chat-keyboard-inset)));
+    }
+
+    .chat-window__input {
+        padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
     }
 
     .chat-fab {
-        bottom: 1rem;
+        bottom: max(1rem, env(safe-area-inset-bottom));
         right: 1rem;
     }
 
-    /* Hide FAB when chat is open on mobile — close button is in the header */
     .chat-fab--open {
         display: none;
     }

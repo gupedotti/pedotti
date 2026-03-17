@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/chat",
+      "destination": "https://chat.pedotti.com.br/v1/chat/completions"
+    },
+    {
+      "source": "/api/hooks/:path*",
+      "destination": "https://chat.pedotti.com.br/hooks/:path*"
+    }
+  ]
+}

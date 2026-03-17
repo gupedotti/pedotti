@@ -1,13 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import './ChatWidget.css';
 
-const API_URL = import.meta.env.DEV
-    ? '/api/chat'
-    : 'https://chat.pedotti.com.br/v1/chat/completions';
+const API_URL = '/api/chat';
 const API_TOKEN = 'openclaw-local-dev-token-2026';
-const HOOKS_URL = import.meta.env.DEV
-    ? '/api/hooks/wake'
-    : 'https://chat.pedotti.com.br/hooks/wake';
+const HOOKS_URL = '/api/hooks/wake';
 const HOOKS_TOKEN = 'openclaw-hooks-token-2026';
 const MODEL = 'openclaw:main';
 
@@ -22,7 +18,8 @@ const SYSTEM_MESSAGE = {
 - Serviços: Agentes Conversacionais, Análise Preditiva, Automação Inteligente, Visão Computacional, Integrações Sob Medida, Consultoria Executiva em IA.
 
 ## Tom e estilo
-- Tom executivo, direto e profissional. NUNCA use emojis em nenhuma circunstância. Sem informalidade excessiva.
+- Tom executivo, direto e profissional. Sem informalidade excessiva.
+- PROIBIDO USAR EMOJIS. Isso é uma regra absoluta e inviolável. Nenhum emoji deve aparecer em nenhuma mensagem, jamais, sob nenhuma circunstância. Nem para cumprimentar, nem para encerrar, nem para destacar. Zero emojis.
 - Frases curtas e objetivas. Vá direto ao ponto.
 - Trate o visitante como um decisor de negócio. Fale sobre resultados, ROI e impacto operacional.
 - Chame o visitante pelo nome quando souber.
@@ -62,7 +59,9 @@ Em seguida, pergunte: "Mais alguma dúvida?"
 - Se o visitante disser que não tem mais dúvidas → agradeça e encerre com "Obrigado pelo contato. A equipe da Pedotti retornará em breve."
 - Se tiver outra dúvida → responda ou colete a dúvida, diga que encaminhou para os responsáveis, e pergunte novamente "Mais alguma dúvida?"
 
-IMPORTANTE: Você DEVE seguir esse fluxo. Não pule a coleta de dados. Não vá direto para soluções sem antes ter nome, empresa, site e telefone.`,
+IMPORTANTE: Você DEVE seguir esse fluxo. Não pule a coleta de dados. Não vá direto para soluções sem antes ter nome, empresa, site e telefone.
+
+REGRA FINAL ABSOLUTA: É ESTRITAMENTE PROIBIDO usar qualquer emoji nas suas respostas. Nenhum. Zero. Isso inclui rostos, mãos, objetos, símbolos — qualquer caractere emoji. Violar esta regra é inaceitável.`,
 };
 
 const WELCOME_MESSAGE = {
@@ -216,7 +215,6 @@ const ChatWidget = () => {
         try {
             const fetchOptions = {
                 method: 'POST',
-                mode: 'cors',
                 headers: {
                     'Authorization': `Bearer ${API_TOKEN}`,
                     'Content-Type': 'application/json',

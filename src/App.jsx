@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Process from './components/Process';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ChatWidget from './components/ChatWidget';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ChatWidget />
     </>
   );
 }

@@ -75,7 +75,7 @@ const Hero = () => {
                 </p>
 
                 <nav className="hero__actions animate-fade-in-up delay-400" aria-label="Ações principais">
-                    <button className="hero__btn hero__btn--primary" onClick={() => scrollToSection('contato')}>
+                    <button className="hero__btn hero__btn--primary" onClick={() => window.dispatchEvent(new Event('open-chat'))}>
                         Converse conosco
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                             <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

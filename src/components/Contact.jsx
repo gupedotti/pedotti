@@ -35,17 +35,15 @@ const Contact = () => {
                             </a>
                         </div>
 
-                        <a
-                            href="https://wa.me/5511988747672?text=Olá! Gostaria de entender como a Pedotti pode desenhar uma solução de IA para o meu negócio."
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <button
                             className="contact__cta"
+                            onClick={() => window.dispatchEvent(new Event('open-chat'))}
                         >
                             Converse conosco
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                        </a>
+                        </button>
                     </div>
 
                     <div className="contact__visual" aria-hidden="true">

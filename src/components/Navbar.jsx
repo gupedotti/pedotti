@@ -105,7 +105,7 @@ const Navbar = () => {
                     <button className="navbar__link" onClick={() => scrollToSection('contato')}>Contato</button>
                 </div>
 
-                <button className="navbar__cta" onClick={() => scrollToSection('contato')}>
+                <button className="navbar__cta" onClick={() => window.dispatchEvent(new Event('open-chat'))}>
                     Agendar diagnóstico
                 </button>
 

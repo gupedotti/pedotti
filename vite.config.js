@@ -10,17 +10,11 @@ export default defineConfig({
         target: 'https://chat.pedotti.com.br',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/chat/, '/v1/chat/completions'),
-        headers: {
-          'ngrok-skip-browser-warning': 'true',
-        },
       },
       '/api/hooks': {
         target: 'https://chat.pedotti.com.br',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/hooks/, '/hooks'),
-        headers: {
-          'ngrok-skip-browser-warning': 'true',
-        },
       },
     },
   },

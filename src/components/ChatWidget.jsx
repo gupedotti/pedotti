@@ -67,7 +67,7 @@ IMPORTANTE: Você DEVE seguir esse fluxo. Não pule a coleta de dados. Não vá 
 
 const WELCOME_MESSAGE = {
     role: 'bot',
-    content: 'Olá, sou o Jarvis, assistente da Pedotti. Para direcionar melhor a conversa, qual é o seu nome?',
+    content: 'Olá! Tudo bem? Para direcionar melhor a conversa inicial, qual é o seu nome?',
     time: new Date(),
 };
 
@@ -240,33 +240,6 @@ const ChatWidget = () => {
                 const errorBody = await res.text();
                 console.error('[ChatWidget] HTTP error', res.status, errorBody);
                 throw new Error(`HTTP ${res.status}`);
-            }
-
-            const contentType = res.headers.get('content-type') || '';
-
-            // If server returned HTML instead of JSON/SSE, fall back to non-streaming
-            if (contentType.includes('text/html')) {
-                console.warn('[ChatWidget] Got HTML response, retrying with stream: false');
-                const fallbackController = new AbortController();
-                abortRef.current = fallbackController;
-
-                res = await fetch(API_URL, {
-                    ...fetchOptions,
-                    body: JSON.stringify({ ...streamPayload, stream: false }),
-                    signal: fallbackController.signal,
-                });
-
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-                const json = await res.json();
-                const content = json.choices?.[0]?.message?.content || '';
-                setMessages((prev) => {
-                    const updated = [...prev];
-                    const last = updated[updated.length - 1];
-                    updated[updated.length - 1] = { ...last, content };
-                    return updated;
-                });
-                return;
             }
 
             // SSE streaming path

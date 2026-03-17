@@ -300,21 +300,29 @@
 /* Mobile responsive */
 @media (max-width: 480px) {
     .chat-window {
+        top: 0;
         bottom: 0;
         right: 0;
         left: 0;
         width: 100%;
+        height: 100dvh;
         max-height: 100dvh;
         border-radius: 0;
     }
 
     .chat-window__messages {
-        max-height: calc(100dvh - 140px);
-        min-height: calc(100dvh - 140px);
+        flex: 1;
+        max-height: none;
+        min-height: 0;
     }
 
     .chat-fab {
         bottom: 1rem;
         right: 1rem;
+    }
+
+    /* Hide FAB when chat is open on mobile — close button is in the header */
+    .chat-fab--open {
+        display: none;
     }
 }

@@ -133,6 +133,26 @@ function formatInline(text) {
     });
 }
 
+function playNotificationSound() {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(880, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(660, ctx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0.18, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.3);
+        osc.onended = () => ctx.close();
+    } catch {
+        // silently ignore if audio not available
+    }
+}
+
 const ChatWidget = () => {
     const [open, setOpen] = useState(false);
     const [messages, setMessages] = useState([WELCOME_MESSAGE]);
@@ -142,6 +162,7 @@ const ChatWidget = () => {
     const inputRef = useRef(null);
     const abortRef = useRef(null);
     const visitorId = useRef(getVisitorId());
+    const wasStreaming = useRef(false);
 
     const scrollToBottom = useCallback((behavior = 'smooth') => {
         messagesEndRef.current?.scrollIntoView({ behavior, block: 'end' });
@@ -207,6 +228,16 @@ const ChatWidget = () => {
             vv?.removeEventListener('scroll', handleViewportChange);
         };
     }, [clearMobileViewport, open, scrollToBottom, syncMobileViewport]);
+
+    useEffect(() => {
+        if (wasStreaming.current && !isStreaming) {
+            const last = messages[messages.length - 1];
+            if (last?.role === 'bot' && last.content) {
+                playNotificationSound();
+            }
+        }
+        wasStreaming.current = isStreaming;
+    }, [isStreaming, messages]);
 
     useEffect(() => {
         const behavior = messages[messages.length - 1]?.role === 'bot' ? 'auto' : 'smooth';

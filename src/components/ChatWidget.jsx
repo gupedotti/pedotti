@@ -5,7 +5,7 @@ const API_URL = '/api/chat';
 const API_TOKEN = 'openclaw-local-dev-token-2026';
 const HOOKS_URL = '/api/hooks/wake';
 const HOOKS_TOKEN = 'openclaw-hooks-token-2026';
-const MODEL = 'openclaw:main';
+const MODEL = 'openclaw:website';
 const MOBILE_MEDIA_QUERY = '(max-width: 480px)';
 
 const SYSTEM_MESSAGE = {
